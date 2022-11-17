@@ -4,8 +4,14 @@ import {Link} from "react-router-dom";
 
 export const Menu = () => {
     const [displayMenu, setDisplayMenu] = useState<'none' | 'block'>('none');
+    const [navHeight, setNavHeight] = useState<0 | '100%'>(0);
     const closeNav = () => {
-        setDisplayMenu('none');
+        // setDisplayMenu('none');
+        setNavHeight(0);
+    }
+    const openNav = () => {
+        // setDisplayMenu('block');
+        setNavHeight('100%');
     }
 
     return (
@@ -24,7 +30,7 @@ export const Menu = () => {
                                   to="//src/pages">{env.appName}</Link>
                         </span>*/}
                     </div>
-                    <button className="navbar-toggler" onClick={() => setDisplayMenu('block')}>
+                    <button className="navbar-toggler" onClick={openNav}>
                         <div className="hamburger">
                             <span></span>
                             <span></span>
@@ -32,9 +38,10 @@ export const Menu = () => {
                             <span></span>
                         </div>
                     </button>
-                    <div style={{ display: displayMenu }} className="overlay">
+                    <div style={{ height: navHeight }} className="overlay">
                         <Link to="#" className="closebtn" onClick={closeNav}>&times;</Link>
-                        <ul className="navbar-nav nav-dropdown navbar-light nav-right overlay-content" data-app-modern-menu="true">
+                        <ul className="navbar-nav nav-dropdown navbar-light nav-right overlay-content"
+                            data-app-modern-menu="true">
                             <li className="nav-item">
                                 <Link className="nav-link link text-black text-primary display-4"
                                       to="/about-us" aria-expanded="false" onClick={closeNav}>
