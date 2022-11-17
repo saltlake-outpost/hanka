@@ -2,8 +2,11 @@ import React from "react";
 
 export const Hero = () => {
     return (
-        <section data-bs-version="5.1" className="header2 cid-tl9ZQYcfLu mbr-fullscreen"
-                 data-bg-video="https://player.vimeo.com/video/763322980?h=ee34dc67f0" id="header2-4f">
+        <section data-bs-version="5.1" className="header2 cid-tl9ZQYcfLu mbr-fullscreen" id="header2-4f">
+            <video autoPlay={true} loop={true} muted={true} controls={false}
+                   style={{ minHeight: "100vh", minWidth: "100vw", position: "absolute", top: 0 }}>
+                <source src={"/videos/bg-video.mp4"} type={"video/mp4"}/>
+            </video>
             <div className="mbr-overlay" style={{ opacity: "0.4", backgroundColor: "rgb(19, 40, 125)" }}/>
             <div className="main-container">
                 <div className="row">
