@@ -4,7 +4,7 @@ export const Hero = () => {
     return (
         <section data-bs-version="5.1" className="header2 cid-tl9ZQYcfLu mbr-fullscreen" id="header2-4f">
             <video playsInline={true} autoPlay={true} loop={true} muted={true}
-                   style={{ minHeight: "100vh", minWidth: "100vw", position: "absolute", top: 0 }}>
+                   style={{ minHeight: "100vh", minWidth: "100vw", maxWidth: "100vw", position: "absolute", top: 0 }}>
                 <source src={"https://fprs.help/bg-video.mp4"} type={"video/mp4"}/>
             </video>
             <div className="mbr-overlay" style={{ opacity: "0.4", backgroundColor: "rgb(19, 40, 125)" }}/>
