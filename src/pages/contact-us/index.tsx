@@ -1,7 +1,24 @@
-import React from "react";
+import React, {ChangeEvent, useState} from "react";
 import {Partners} from "../../shared/partners";
 
 export const ContactUs = () => {
+    const [formDetails, setFormDetails] = useState({
+        nameFirst: "",
+        nameLast: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+    });
+
+    const onChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormDetails(prevState => ({
+            ...prevState,
+            [name]: value,
+        }));
+    }
+
     return (
         <>
             <section data-bs-version="5.1" className="header3 cid-t9ZvkkvJxS mbr-parallax-background" id="header03-11">
@@ -75,71 +92,72 @@ export const ContactUs = () => {
                         <div className="col-md-12 col-lg-5">
                             <div className="google-map">
                                 <iframe frameBorder="0" style={{ border: 0 }}
-                                        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDk89J4FSunMF33ruMVWJaJht_Ro0kvoXs&amp;q=Firdonkatu 2, Workery West, 6th Floor,00520, Helsinki, Finland."
                                         allowFullScreen={true} loading="lazy" className="lazyload"
                                         data-src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDk89J4FSunMF33ruMVWJaJht_Ro0kvoXs&amp;q=Firdonkatu 2, Workery West, 6th Floor,00520, Helsinki, Finland."></iframe>
                             </div>
                         </div>
                         <div className="col-md-12 col-lg-6 offset-md-1 mx-auto mbr-form" data-form-type="formoid">
-                            <form action="javascript:void(0)" method="POST" className="mbr-form form-with-styler"
+                            <form action="#" method="POST" className="mbr-form form-with-styler"
                                   data-form-title="Contact Us">
                                 <input type="hidden" name="email" data-form-email="true"
                                        value="4BWhxFVunVYcZVnxoj823fKBo/jw9UuiwgU+Hjm1YFihpE8zpw940GwcenRczK0ZHLiFdpTyrDuOquuUK/p8aCN3DbcmBldSwfBD4QsIPDkiIcpQNgVr4eftv0ImwovJ.aIeAICk9s8X7zrzxhKQmmsBxNOSi/1Y1zyrphTvX+2DrEprfEWND4wCvFexecOE87NcpTBTMF8S54qvNVfV6fsl85BoK8Z42/10mVHaU9mXwjo1mgwdKi0rim1F14B0O"/>
-                                    <div className="row">
-                                        <div hidden={true} data-form-alert=""
-                                             className="alert alert-success col-12">Thanks for filling out the form!
-                                        </div>
-                                        <div hidden={true} data-form-alert-danger=""
-                                             className="alert alert-danger col-12">Oops...! some problem!
-                                        </div>
+                                <div className="row">
+                                    <div hidden={true} data-form-alert=""
+                                         className="alert alert-success col-12">Thanks for filling out the form!
                                     </div>
-                                    <div className="dragArea row">
-                                        <div className="col-lg-12 col-md-12 col-sm-12 form-group">
-                                            <div className="row">
-                                                <div className="col">
-                                                    <input type="text" name="nameFirst" placeholder="First Name"
-                                                           data-form-field="nameFirst"
-                                                           className="form-control text-multiple" value=""
-                                                           id="nameFirst-map02-2z"/>
-                                                </div>
-                                                <div className="col">
-                                                    <input type="text" name="nameLast" placeholder="Last Name"
-                                                           data-form-field="nameLast"
-                                                           className="form-control text-multiple" value=""
-                                                           id="nameLast-map02-2z"/>
-                                                </div>
+                                    <div hidden={true} data-form-alert-danger=""
+                                         className="alert alert-danger col-12">Oops...! some problem!
+                                    </div>
+                                </div>
+                                <div className="dragArea row">
+                                    <div className="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <div className="row">
+                                            <div className="col">
+                                                <input type="text" name="nameFirst" placeholder="First Name"
+                                                       data-form-field="nameFirst" onChange={onChange}
+                                                       className="form-control text-multiple"
+                                                       value={formDetails.nameFirst} id="nameFirst-map02-2z"/>
+                                            </div>
+                                            <div className="col">
+                                                <input type="text" name="nameLast" placeholder="Last Name"
+                                                       data-form-field="nameLast" onChange={onChange}
+                                                       className="form-control text-multiple"
+                                                       value={formDetails.nameLast} id="nameLast-map02-2z"/>
                                             </div>
                                         </div>
-                                        <div className="col-lg-6 col-md-12 col-sm-12 form-group mb-3" data-for="email">
-                                            <input type="email" name="email" placeholder="Email" data-form-field="email"
-                                                   className="form-control display-7" value="" id="email-map02-2z"/>
-                                        </div>
-                                        <div data-for="phone" className="col-lg-6 col-md-12 col-sm-12 form-group mb-3">
-                                            <input type="tel" name="phone" placeholder="Phone" data-form-field="phone"
-                                                   className="form-control display-7" pattern="*" value=""
-                                                   id="phone-map02-2z"/>
-                                        </div>
-                                        <div data-for="subject"
-                                             className="col-lg-12 col-md-12 col-sm-12 form-group mb-3">
-                                            <input type="text" name="subject" placeholder="Subject"
-                                                   data-form-field="subject" className="form-control display-7" value=""
-                                                   id="subject-map02-2z"/>
-                                        </div>
-                                        <div className="col-lg-12 col-md-12 col-sm-12 form-group mb-3"
-                                             data-for="message">
-                                            <textarea name="message" placeholder="Message" data-form-field="message"
-                                                      className="form-control display-7"
-                                                      id="message-map02-2z"/>
-                                        </div>
-                                        <div className="g-recaptcha"
-                                             data-sitekey="6LdNpfUiAAAAAEIJmDnAGYERnnPDq72Ex2AuhiLq"
-                                             data-action="LOGIN"></div>
-                                        <div className="col-lg-12 col-md-12 col-sm-12 m-auto">
-                                            <button type="submit"
-                                                    className="w-100 w-100 w-100 w-100 btn btn-black display-7">Send
-                                            </button>
-                                        </div>
                                     </div>
+                                    <div className="col-lg-6 col-md-12 col-sm-12 form-group mb-3" data-for="email">
+                                        <input type="email" name="email" placeholder="Email" data-form-field="email"
+                                               className="form-control display-7" value={formDetails.email}
+                                               id="email-map02-2z" onChange={onChange}/>
+                                    </div>
+                                    <div data-for="phone" className="col-lg-6 col-md-12 col-sm-12 form-group mb-3">
+                                        <input type="tel" name="phone" placeholder="Phone" data-form-field="phone"
+                                               className="form-control display-7" pattern="*" value={formDetails.phone}
+                                               id="phone-map02-2z" onChange={onChange}/>
+                                    </div>
+                                    <div data-for="subject"
+                                         className="col-lg-12 col-md-12 col-sm-12 form-group mb-3">
+                                        <input type="text" name="subject" placeholder="Subject"
+                                               data-form-field="subject" className="form-control display-7"
+                                               value={formDetails.subject} id="subject-map02-2z" onChange={onChange}/>
+                                    </div>
+                                    <div className="col-lg-12 col-md-12 col-sm-12 form-group mb-3"
+                                         data-for="message">
+                                        <textarea name="message" placeholder="Message" data-form-field="message"
+                                                  className="form-control display-7" value={formDetails.message}
+                                                  id="message-map02-2z" onChange={onChange}/>
+                                    </div>
+                                    <div className="g-recaptcha"
+                                         data-sitekey="6LdNpfUiAAAAAEIJmDnAGYERnnPDq72Ex2AuhiLq"
+                                         data-action="LOGIN"></div>
+                                    <div className="col-lg-12 col-md-12 col-sm-12 m-auto">
+                                        <button type="submit"
+                                                className="w-100 w-100 w-100 w-100 btn btn-black display-7">Send
+                                        </button>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
