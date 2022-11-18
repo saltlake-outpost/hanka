@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {env} from "../environment";
 import {Link} from "react-router-dom";
 
-export const Menu = () => {
+export const Header = () => {
     const [displayMenu, setDisplayMenu] = useState<'none' | 'block'>('none');
     const [navHeight, setNavHeight] = useState<0 | '100%'>(0);
     const closeNav = () => {
